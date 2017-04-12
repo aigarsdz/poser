@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+  "name": "Poser",
+  "description": "",
+  "version": "0.0.1",
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "index.html",
+    "default_title": "Poser"
+  },
+  "permissions": [
+    "tabs",
+    "storage"
+  ]
+}
