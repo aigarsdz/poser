@@ -1,14 +1,9 @@
 <template>
-  <ul id="available-dimensions">
-    <li>
-      <span>Available width:</span>
-      <span>{{availableWidth}}px</span>
-    </li>
-    <li>
-      <span>Available height:</span>
-      <span>{{availableHeight}}px</span>
-    </li>
-  </ul>
+  <div id="available-dimensions">
+    <span>{{availableWidth}}px</span>
+    <div class="times"></div>
+    <span>{{availableHeight}}px</span>
+  </div>
 </template>
 
 <script>
@@ -27,17 +22,17 @@
 </script>
 
 <style scoped>
-  ul {
-    list-style: none;
-    margin: 0 0 20px 0;
-    padding: 0;
+  #available-dimensions {
+    padding: 20px 10px;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
   }
 
-  li {
-    margin-botton: 5px;
-  }
-
-  li > span:first-child {
-    font-weight: bold;
+  .times {
+    background: url(/times.svg) center center no-repeat;
+    width: 20px;
+    height: 20px;
+    padding: 0 6px;
   }
 </style>

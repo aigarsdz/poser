@@ -28,8 +28,8 @@
   nav {
     height: 32px;
     display: flex;
-    border-bottom: 1px solid #cfcfcf;
-    margin-bottom: 20px;
+    padding-bottom: 20px;
+    background-color: #eee;
   }
 
   a {
@@ -42,9 +42,11 @@
     align-items: center;
     padding: 0 10px;
     height: 32px;
+    color: #499273;
+    justify-content: center;
   }
 
   a.current {
-    border-bottom: 4px solid #55AA55;
+    border-bottom: 4px solid #BE5F7C;
   }
 </style>

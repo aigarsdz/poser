@@ -64,6 +64,11 @@
 </script>
 
 <style scoped>
+  #presets {
+    background-color: #eee;
+    padding: 20px 10px;
+  }
+
   .preset {
     display: flex;
     flex-direction: row;

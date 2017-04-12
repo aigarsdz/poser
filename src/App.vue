@@ -23,6 +23,11 @@
 </script>
 
 <style>
+  body {
+    padding: 0;
+    margin: 0;
+  }
+
   main {
     width: 200px;
   }
