@@ -31,6 +31,14 @@
         });
 
         window.close();
+      },
+      deletePreset(preset) {
+        const index = this.presets.findIndex((p) => p.name == preset.name);
+
+        if (index > -1) {
+          this.presets.splice(index, 1);
+          BrowserService.browser.storage.local.set({ presets: JSON.stringify(this.presets) });
+        }
       }
     },
     mounted() {
