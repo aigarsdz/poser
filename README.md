@@ -1,6 +1,6 @@
 # poser
 
-> A Chrome extension to position windows
+A chrome extension to manage window placement
 
 ## Build Setup
 
