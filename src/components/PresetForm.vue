@@ -3,7 +3,7 @@
     <form action="#" method="POST">
       <div class="form-group">
         <label for="name">Name</label>
-        <input type="text" name="name" v-model="preset.name">
+        <input type="text" name="name" autofocus v-model="preset.name">
       </div>
 
       <div class="form-group">
@@ -26,7 +26,7 @@
         <input type="number" step="1" name="height" v-model="preset.height">
       </div>
 
-      <div class="from-group">
+      <div class="form-group">
         <button type="button" @click="savePreset">Save preset</button>
       </div>
     </form>
@@ -68,3 +68,47 @@
     }
   }
 </script>
+
+<style scoped>
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #eee;
+  }
+
+  .form-group {
+    width: 50%;
+    padding: 5px;
+  }
+
+  .form-group,
+  input {
+    box-sizing: border-box;
+  }
+
+  input {
+    width: 100%;
+    height: 24px;
+  }
+
+  .form-group:first-child,
+  .form-group:last-child {
+    width: 100%;
+  }
+
+  .form-group:last-child {
+    text-align: center;
+  }
+
+  button {
+    height: 24px;
+    border: none;
+    width: 50%;
+    background-color: #499273;
+    color: white;
+  }
+
+  button:hover {
+    background-color: #0D5637;
+  }
+</style>

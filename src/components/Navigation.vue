@@ -46,6 +46,10 @@
     justify-content: center;
   }
 
+  a:hover {
+    color: #0D5637;
+  }
+
   a.current {
     border-bottom: 4px solid #BE5F7C;
   }
