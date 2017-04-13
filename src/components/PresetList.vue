@@ -11,7 +11,8 @@
 </template>
 
 <script>
-  import { BrowserService, PresetService } from '../main.js';
+  import { PresetService } from '../services/PresetService';
+  import { BrowserService } from '../services/BrowserService';
 
   export default {
     data() {
@@ -21,8 +22,8 @@
     },
     methods: {
       applyPreset(preset) {
-        window.browser.windows.getCurrent(function(w) {
-          window.browser.windows.update(w.id, {
+        BrowserService.browser.windows.getCurrent(function(w) {
+          BrowserService.browser.windows.update(w.id, {
             left:   preset.left,
             top:    preset.top,
             height: preset.height,
@@ -33,31 +34,20 @@
         window.close();
       },
       deletePreset(preset) {
-        const index = this.presets.findIndex((p) => p.name == preset.name);
-
-        if (index > -1) {
-          this.presets.splice(index, 1);
-          BrowserService.browser.storage.local.set({ presets: JSON.stringify(this.presets) });
-        }
+        PresetService.delete(preset);
       }
     },
     mounted() {
-      BrowserService.browser.storage.local.get('presets', function(data) {
-        if (Object.keys(data).length > 0) {
-          this.presets = JSON.parse(data.presets);
-        }
-      }.bind(this));
+      PresetService.$on('presets.added', ($event) => {
+        this.presets = $event;
+      });
 
-      PresetService.$on('preset.add', ($event) => {
-        this.presets.push({
-          name:   $event.name,
-          left:   $event.left,
-          top:    $event.top,
-          width:  $event.width,
-          height: $event.height
-        });
+      PresetService.$on('presets.loaded', ($event) => {
+        this.presets = $event;
+      });
 
-        BrowserService.browser.storage.local.set({ presets: JSON.stringify(this.presets) });
+      PresetService.$on('presets.deleted', ($event) => {
+        this.presets = $event;
       });
     }
   }
@@ -67,6 +57,8 @@
   #presets {
     background-color: #eee;
     padding: 20px 10px;
+    max-height: 100px;
+    overflow: auto;
   }
 
   .preset {

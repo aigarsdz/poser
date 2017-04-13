@@ -34,7 +34,8 @@
 </template>
 
 <script>
-  import { BrowserService, PresetService } from '../main.js';
+  import { BrowserService } from '../services/BrowserService';
+  import { PresetService } from '../services/PresetService.js';
 
   export default {
     data() {
@@ -54,7 +55,7 @@
       },
       savePreset() {
         if (this.validatePreset()) {
-          PresetService.notifyOfNewPreset(this.preset);
+          PresetService.add(this.preset);
         }
       }
     },
