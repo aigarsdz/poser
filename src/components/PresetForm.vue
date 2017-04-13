@@ -56,6 +56,7 @@
       savePreset() {
         if (this.validatePreset()) {
           PresetService.add(this.preset);
+          this.preset.name = '';
         }
       }
     },

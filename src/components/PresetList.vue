@@ -65,6 +65,9 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    border-bottom: 1px dashed #ccc;
+    padding: 5px 0;
+    height: 20px;
   }
 
   .preset > div:first-child {
@@ -75,10 +78,23 @@
   .delete {
     width: 20px;
     height: 20px;
+    display: none;
+
+  }
+
+  .apply:active,
+  .delete:active {
+    transform: scale(.8);
+  }
+
+  .preset:hover .apply,
+  .preset:hover .delete {
+    display: block;
   }
 
   .apply {
     background: url(/play.svg) center center no-repeat;
+    margin-right: 16px;
   }
 
   .delete {
